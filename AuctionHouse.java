@@ -1,8 +1,8 @@
 public class AuctionHouse {
     public String name;
-    public String[] items;
+    public Item[] items;
 
-    public AuctionHouse(String name, String[] items) {
+    public AuctionHouse(String name, Item[] items) {
         this.name = name;
         this.items = items;
     }
@@ -21,17 +21,16 @@ public class AuctionHouse {
     public String getName(){
         return name;
     }
-    public void setItems(String[] items){
-        this.items = items;
-    }
 
-    public String[] getItems(){
-        return items;
-    }
-
-    public String mostExpensiveItem() {
+    int item = 0;
+    double itemPrice = 0;
+    public int mostExpensiveItem() {
         for (int i = 0; i < items.length; i++) {
-            String item = items[i];
+            if (items[i].price > itemPrice){
+                item = items[i].itemLot;
+                itemPrice = items[i].price;
+            }
         }
+        return item;
     }
 }
