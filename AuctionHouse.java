@@ -33,4 +33,16 @@ public class AuctionHouse {
         }
         return item;
     }
+
+    double averagePrice = 0;
+    int numItems = 0;
+    public double averageItemYear(int year) {
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].year == year){
+                averagePrice += items[i].price;
+                numItems += 1;
+            }
+        }
+        return averagePrice / numItems;
+    }
 }
