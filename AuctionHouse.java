@@ -10,7 +10,7 @@ public class AuctionHouse {
         this.items = items;
     }
 
-    public String string(){
+    public String stringAuctionHouse(){
         return String.format("""
                 Auction house name:\t%s
                 Items sold:\t%s

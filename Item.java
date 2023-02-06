@@ -13,7 +13,7 @@ public class Item {
         this.itemType = itemType;
     }
 
-    public String format(){
+    public String stringItems(){
         return String.format("""
                 Item lot number:\t%s
                 Buyer name:\t%s
