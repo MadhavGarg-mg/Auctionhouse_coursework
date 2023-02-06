@@ -49,7 +49,7 @@ public class AuctionHouse {
         return averagePrice / numItems;
     }
 
-    ArrayList<Integer> itemList;
+    ArrayList<Integer> itemList = new ArrayList<>();
     public ArrayList<Integer> listMoreAmount(int amount) {
         for (int i = 0; i < items.length; i++) {
             if (items[i].price > amount){
