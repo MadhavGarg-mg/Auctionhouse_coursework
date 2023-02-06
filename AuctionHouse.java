@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class AuctionHouse {
     public String name;
     public Item[] items;
@@ -44,5 +48,15 @@ public class AuctionHouse {
             }
         }
         return averagePrice / numItems;
+    }
+
+    ArrayList<Integer> itemList = new ArrayList<Integer>();
+    public ArrayList listMoreAmount(int amount) {
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].price > amount){
+                itemList.add(items[i].itemLot);
+            }
+        }
+        return itemList;
     }
 }
