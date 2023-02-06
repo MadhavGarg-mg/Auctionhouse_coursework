@@ -22,4 +22,26 @@ public class Reporting {
         }
         return highestPrice;
     }
+
+    double highestAveragePrice;
+    String nameHighestAverage;
+
+    public String highestAveragePriceYear(int year) {
+        for (int i = 0; i < auctionHouses.length; i++) {
+            double averagePrice = 0;
+            int totalItemsInYear = 0;
+            for(int j = 0; j < auctionHouses[i].items.length; j++){
+                if (auctionHouses[i].items[j].year == year){
+                        averagePrice += auctionHouses[i].items[j].price;
+                        totalItemsInYear += 1;
+                }
+                }
+            averagePrice = averagePrice / totalItemsInYear;
+            if (averagePrice > highestAveragePrice){
+                highestAveragePrice = averagePrice;
+                nameHighestAverage = auctionHouses[i].name;
+            }
+        }
+        return nameHighestAverage;
+    }
 }
