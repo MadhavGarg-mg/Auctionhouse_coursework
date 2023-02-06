@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Reporting {
@@ -43,5 +44,17 @@ public class Reporting {
             }
         }
         return nameHighestAverage;
+    }
+
+    ArrayList<Integer> itemGreater = new ArrayList<>();
+    public ArrayList<Integer> listGreaterThanAmount(double amount) {
+        for (int i = 0; i < auctionHouses.length; i++) {
+            for(int j = 0; j < auctionHouses[i].items.length; j++){
+                if (auctionHouses[i].items[j].price > amount){
+                    itemGreater.add(auctionHouses[i].items[j].itemLot);
+                }
+            }
+        }
+        return itemGreater;
     }
 }
