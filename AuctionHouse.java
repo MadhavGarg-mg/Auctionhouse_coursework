@@ -25,8 +25,8 @@ public class AuctionHouse {
         return name;
     }
 
-    int item = 0;
-    double itemPrice = 0;
+    int item;
+    double itemPrice;
     public int mostExpensiveItem() {
         for (int i = 0; i < items.length; i++) {
             if (items[i].price > itemPrice){
@@ -37,8 +37,8 @@ public class AuctionHouse {
         return item;
     }
 
-    double averagePrice = 0;
-    int numItems = 0;
+    double averagePrice;
+    int numItems;
     public double averageItemYear(int year) {
         for (int i = 0; i < items.length; i++) {
             if (items[i].year == year){
@@ -49,7 +49,7 @@ public class AuctionHouse {
         return averagePrice / numItems;
     }
 
-    ArrayList<Integer> itemList = new ArrayList<>();
+    ArrayList<Integer> itemList;
     public ArrayList<Integer> listMoreAmount(int amount) {
         for (int i = 0; i < items.length; i++) {
             if (items[i].price > amount){
