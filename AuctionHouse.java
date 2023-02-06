@@ -1,6 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class AuctionHouse {
     public String name;
@@ -11,12 +10,12 @@ public class AuctionHouse {
         this.items = items;
     }
 
-//    public String format(){
-//        return String.format("""
-//                Auction house name:\t%s
-//                Items sold:\t%s
-//                """, getName(), getItems());
-//    }
+    public String string(){
+        return String.format("""
+                Auction house name:\t%s
+                Items sold:\t%s
+                """, getName(), Arrays.toString(items));
+    }
 
     public void setName(String name){
         this.name = name;
@@ -51,7 +50,7 @@ public class AuctionHouse {
     }
 
     ArrayList<Integer> itemList = new ArrayList<>();
-    public ArrayList listMoreAmount(int amount) {
+    public ArrayList<Integer> listMoreAmount(int amount) {
         for (int i = 0; i < items.length; i++) {
             if (items[i].price > amount){
                 itemList.add(items[i].itemLot);
