@@ -28,12 +28,12 @@ public class AuctionHouse {
         items.add(item);
     }
 
-    int item;
+    Item item;
     double itemPrice;
-    public int mostExpensiveItem() {
+    public Item mostExpensiveItem() {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getPrice() > itemPrice){
-                item = items.get(i).getItemLot();
+                item = items.get(i);
                 itemPrice = items.get(i). getPrice();
             }
         }
