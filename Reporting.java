@@ -15,9 +15,9 @@ public class Reporting {
     double highestPrice;
     public double highestItemPrice() {
         for (int i = 0; i < auctionHouses.length; i++) {
-            for(int j = 0; j < auctionHouses[i].items.length; j++){
-                if (auctionHouses[i].items[j].price > highestPrice){
-                    highestPrice = auctionHouses[i].items[j].price;
+            for(int j = 0; j < auctionHouses[i].items.size(); j++){
+                if (auctionHouses[i].items.get(j).getPrice() > highestPrice){
+                    highestPrice = auctionHouses[i].items.get(j).getPrice();
                 }
             }
         }
@@ -31,16 +31,16 @@ public class Reporting {
         for (int i = 0; i < auctionHouses.length; i++) {
             double averagePrice = 0;
             int totalItemsInYear = 0;
-            for(int j = 0; j < auctionHouses[i].items.length; j++){
-                if (auctionHouses[i].items[j].year == year){
-                        averagePrice += auctionHouses[i].items[j].price;
+            for(int j = 0; j < auctionHouses[i].items.size(); j++){
+                if (auctionHouses[i].items.get(j).getYear() == year){
+                        averagePrice += auctionHouses[i].items.get(j).getPrice();
                         totalItemsInYear += 1;
                 }
                 }
             averagePrice = averagePrice / totalItemsInYear;
             if (averagePrice > highestAveragePrice){
                 highestAveragePrice = averagePrice;
-                nameHighestAverage = auctionHouses[i].name;
+                nameHighestAverage = auctionHouses[i].getName();
             }
         }
         return nameHighestAverage;
@@ -49,9 +49,9 @@ public class Reporting {
     ArrayList<Integer> itemGreater = new ArrayList<>();
     public ArrayList<Integer> listGreaterThanAmount(double amount) {
         for (int i = 0; i < auctionHouses.length; i++) {
-            for(int j = 0; j < auctionHouses[i].items.length; j++){
-                if (auctionHouses[i].items[j].price > amount){
-                    itemGreater.add(auctionHouses[i].items[j].itemLot);
+            for(int j = 0; j < auctionHouses[i].items.size(); j++){
+                if (auctionHouses[i].items.get(j).getPrice() > amount){
+                    itemGreater.add(auctionHouses[i].items.get(j).getItemLot());
                 }
             }
         }
