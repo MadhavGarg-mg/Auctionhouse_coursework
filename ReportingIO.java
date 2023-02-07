@@ -94,6 +94,13 @@ public class ReportingIO {
                     System.out.println(reporting.highestItemPrice());
 
                     break;
+
+                case 5:
+                    System.out.println("Amount");
+                    Scanner amount = new Scanner(System.in);
+
+                    System.out.println(reporting.highestAveragePriceYear(amount.nextInt()));
+                    break;
             }
         }
 
