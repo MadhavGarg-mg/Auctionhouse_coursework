@@ -1,9 +1,9 @@
 public class Item {
-    public int itemLot;
-    public String buyerName;
-    public double price;
-    public int year;
-    public String itemType;
+    private int itemLot;
+    private String buyerName;
+    private double price;
+    private int year;
+    private String itemType;
 
     public Item(int itemLot, String buyerName, double price, int year, String itemType) {
         this.itemLot = itemLot;
@@ -13,14 +13,14 @@ public class Item {
         this.itemType = itemType;
     }
 
-    public String stringItems(){
-        return String.format("""
-                Item lot number:\t%s
-                Buyer name:\t%s
-                Price:\t%s
-                Year:\t%s
-                Item type: \t%s
-                """, getItemLot(), getBuyerName(), getPrice(), getYear(), getItemType());
+    public String toString() {
+        return "Item{" +
+                "itemLot=" + itemLot +
+                ", buyerName='" + buyerName + '\'' +
+                ", price=" + price +
+                ", year=" + year +
+                ", itemType='" + itemType + '\'' +
+                '}';
     }
 
     public void setItemLot(int itemLot){
