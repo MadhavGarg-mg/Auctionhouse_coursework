@@ -52,11 +52,11 @@ public class AuctionHouse {
         return averagePrice / numItems;
     }
 
-    ArrayList<Integer> itemList = new ArrayList<>();
-    public ArrayList<Integer> listMoreAmount(int amount) {
+    ArrayList<Item> itemList = new ArrayList<>();
+    public ArrayList<Item> listMoreAmount(int amount) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getPrice() > amount){
-                itemList.add(items.get(i).getItemLot());
+                itemList.add(items.get(i));
             }
         }
         return itemList;
