@@ -5,12 +5,15 @@ public class Testing {
         Item i3 = new Item(1002, "Xander Leon", 1121.40, 2005, "painting");
         Item i4 = new Item(1003, "Rowan Ellis", 210, 2000, "painting");
         Item i5 = new Item(1004, "Andreas Ramos", 2500, 2010, "sculpture");
-//        AuctionHouse a1 = new AuctionHouse("Beasts of Forever");
-//        AuctionHouse a2 = new AuctionHouse("Pristine Deceit");
-//        AuctionHouse a3 = new AuctionHouse("Integrity");
-//        Reporting r1 = new Reporting();
+        AuctionHouse a1 = new AuctionHouse("Beasts of Forever");
+        AuctionHouse a2 = new AuctionHouse("Pristine Deceit");
+        AuctionHouse a3 = new AuctionHouse("Integrity");
+        Reporting r1 = new Reporting();
 
         // Testing all the methods in the Item class.
+
+        System.out.println("Testing Item class");
+        System.out.println(" ");
 
         i1.setItemLot(1005);
         System.out.println("The item lot is: " + i1.getItemLot());
@@ -33,5 +36,43 @@ public class Testing {
         System.out.println(i4);
         System.out.println(i5);
 
+        // Testing all the methods in the AuctionHouse class.
+
+        System.out.println(" ");
+        System.out.println("Testing AuctionHouse class");
+        System.out.println(" ");
+
+        System.out.println("Changing the auction house name from " + a1.getName());
+        a1.setName("Redemption of Harmony");
+        System.out.println("The Auction House name is: " + a1.getName());
+
+        a1.addItem(i1);
+        a1.addItem(i2);
+        a1.addItem(i3);
+        a1.addItem(i4);
+
+        a2.addItem(i1);
+        a2.addItem(i2);
+        a2.addItem(i5);
+
+        a3.addItem(i1);
+        a3.addItem(i3);
+        a3.addItem(i5);
+
+        System.out.println(a1);
+        System.out.println(a2);
+        System.out.println(a3);
+
+        System.out.println("The most expensive item is " + a1.mostExpensiveItem());
+        System.out.println("The most expensive item is " + a2.mostExpensiveItem());
+        System.out.println("The most expensive item is " + a3.mostExpensiveItem());
+
+        System.out.println(a1.averageItemYear(2000));
+        System.out.println(a2.averageItemYear(2000));
+        System.out.println(a3.averageItemYear(2000));
+
+        System.out.println(a1.listMoreAmount(500));
+        System.out.println(a2.listMoreAmount(500));
+        System.out.println(a3.listMoreAmount(500));
     }
 }
