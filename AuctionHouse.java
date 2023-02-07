@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AuctionHouse {
@@ -8,6 +7,18 @@ public class AuctionHouse {
 
     public AuctionHouse(String name) {
         this.name = name;
+    }
+
+    public String toString() {
+        return "AuctionHouse{" +
+                "name='" + name + '\'' +
+                ", items=" + items +
+                ", item=" + item +
+                ", itemPrice=" + itemPrice +
+                ", averagePrice=" + averagePrice +
+                ", numItems=" + numItems +
+                ", itemList=" + itemList +
+                '}';
     }
 
     public void setName(String name){
