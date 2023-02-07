@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class AuctionHouse {
-    public String name;
-    public Item[] items;
+    private String name;
+    List<Item> items = new ArrayList<>();
 
-    public AuctionHouse(String name, Item[] items) {
+    public AuctionHouse(String name) {
         this.name = name;
-        this.items = items;
-    }
-
-    public String stringAuctionHouse(){
-        return String.format("""
-                Auction house name:\t%s
-                Items sold:\t%s
-                """, getName(), Arrays.toString(items));
     }
 
     public void setName(String name){
@@ -25,13 +18,17 @@ public class AuctionHouse {
         return name;
     }
 
+    public boolean addItem(Item item){
+        return items.add(item);
+    }
+
     int item;
     double itemPrice;
     public int mostExpensiveItem() {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].price > itemPrice){
-                item = items[i].itemLot;
-                itemPrice = items[i].price;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getPrice() > itemPrice){
+                item = items.get(i).getItemLot();
+                itemPrice = items.get(i). getPrice();
             }
         }
         return item;
@@ -40,9 +37,9 @@ public class AuctionHouse {
     double averagePrice;
     int numItems;
     public double averageItemYear(int year) {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].year == year){
-                averagePrice += items[i].price;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getYear() == year){
+                averagePrice += items.get(i).getPrice();
                 numItems += 1;
             }
         }
@@ -51,9 +48,9 @@ public class AuctionHouse {
 
     ArrayList<Integer> itemList = new ArrayList<>();
     public ArrayList<Integer> listMoreAmount(int amount) {
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].price > amount){
-                itemList.add(items[i].itemLot);
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getPrice() > amount){
+                itemList.add(items.get(i).getItemLot());
             }
         }
         return itemList;
