@@ -13,11 +13,6 @@ public class AuctionHouse {
         return "AuctionHouse{" +
                 "name='" + name + '\'' +
                 ", items=" + items +
-                ", item=" + item +
-                ", itemPrice=" + itemPrice +
-                ", averagePrice=" + averagePrice +
-                ", numItems=" + numItems +
-                ", itemList=" + itemList +
                 '}';
     }
 
@@ -29,8 +24,8 @@ public class AuctionHouse {
         return name;
     }
 
-    public boolean addItem(Item item){
-        return items.add(item);
+    public void addItem(Item item){
+        items.add(item);
     }
 
     int item;
