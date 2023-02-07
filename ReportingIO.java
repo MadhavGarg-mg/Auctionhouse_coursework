@@ -91,13 +91,9 @@ public class ReportingIO {
                     break;
 
                 case 4:
+                    System.out.println(reporting.highestItemPrice());
 
-//                case 4:
-//                    System.out.println("Quitting");
-//                    quit = true;
-//                    break;
-//                default:
-//                    System.out.println("Not a valid option");
+                    break;
             }
         }
 
