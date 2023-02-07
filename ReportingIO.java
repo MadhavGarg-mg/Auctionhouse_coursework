@@ -101,6 +101,13 @@ public class ReportingIO {
 
                     System.out.println(reporting.highestAveragePriceYear(amount.nextInt()));
                     break;
+
+                case 6:
+                    System.out.println("Quitting");
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Not a valid option");
             }
         }
 
