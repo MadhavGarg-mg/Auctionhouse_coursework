@@ -74,5 +74,24 @@ public class Testing {
         System.out.println(a1.listMoreAmount(500));
         System.out.println(a2.listMoreAmount(500));
         System.out.println(a3.listMoreAmount(500));
+
+        // Testing all the methods in the Reporting class.
+
+        System.out.println(" ");
+        System.out.println("Testing Reporting class");
+        System.out.println(" ");
+
+        System.out.println(r1);
+        r1.addAuctionHouse(a1);
+        r1.addAuctionHouse(a2);
+        r1.addAuctionHouse(a3);
+        System.out.println(r1);
+
+        System.out.println("The highest item price is: " + r1.highestItemPrice());
+
+        System.out.println("The house with the highest average item price in year 2000: " +
+                r1.highestAveragePriceYear(2000));
+
+        System.out.println(r1.listGreaterThanAmount(2000));
     }
 }
