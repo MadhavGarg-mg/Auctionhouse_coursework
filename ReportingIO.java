@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class ReportingIO {
     public static void main(String[] args) {
@@ -17,7 +14,6 @@ public class ReportingIO {
 
         while(!quit){
 
-            Scanner input = new Scanner(System.in);
             String options = """ 
                 1. Enter Auction house data.
                 2. Enter item data.
@@ -31,26 +27,31 @@ public class ReportingIO {
             System.out.println(options);
             int choice = sc.nextInt();
 
+
             switch (choice){
                 case 1:
 
                     System.out.println("How many houses do you want to add? ");
                     Scanner numHouses = new Scanner(System.in);
 
-                    int numberAuctionHouses = numHouses.nextInt();
-                    for (int i = 0; i < numberAuctionHouses; i++){
-                        System.out.println("Please enter the Auction House name");
-                        String name = sc.next();
-                        AuctionHouse auctionHouseName = new AuctionHouse(name);
-                        auctionHouses.add(auctionHouseName);
-                        reporting.addAuctionHouse(auctionHouseName);}
-                    System.out.println(auctionHouses);
-
-
+                    try{int numberAuctionHouses = numHouses.nextInt();
+                        for (int i = 0; i < numberAuctionHouses; i++){
+                            System.out.println("Please enter the Auction House name");
+                            String name = sc.next();
+                            AuctionHouse auctionHouseName = new AuctionHouse(name);
+                            auctionHouses.add(auctionHouseName);
+                            reporting.addAuctionHouse(auctionHouseName);}
+                        System.out.println(auctionHouses);}
+                    catch (InputMismatchException e){
+                        System.out.println("You entered the wrong input.");}
                     break;
 
                 case 2:
 
+                    if (auctionHouses.size() == 0){
+                        System.out.println("Please enter an auction house before you enter an item");
+                        break;
+                    }
                     System.out.println("Please enter the item lot number: ");
                     int itemLot = sc.nextInt();
 
@@ -83,6 +84,11 @@ public class ReportingIO {
                     break;
 
                 case 3:
+                    if (auctionHouses.size() == 0){
+                        System.out.println("There are no auction houses to get any data from");
+                        break;
+                    }
+
                     System.out.println("For which year would you like to get the auction house with the largest " +
                             "average item price");
                     Scanner years = new Scanner(System.in);
@@ -91,11 +97,19 @@ public class ReportingIO {
                     break;
 
                 case 4:
+                    if (auctionHouses.size() == 0){
+                        System.out.println("There are no auction houses to get any data from");
+                        break;
+                    }
                     System.out.println(reporting.highestItemPrice());
 
                     break;
 
                 case 5:
+                    if (auctionHouses.size() == 0){
+                        System.out.println("There are no auction houses to get any data from");
+                        break;
+                    }
                     System.out.println("Amount");
                     Scanner amount = new Scanner(System.in);
 
