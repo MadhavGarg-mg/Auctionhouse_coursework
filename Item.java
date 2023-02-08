@@ -15,11 +15,11 @@ public class Item {
 
     public String toString() {
         return "Item{" +
-                "itemLot=" + itemLot +
-                ", buyerName='" + buyerName + '\'' +
-                ", price=" + price +
-                ", year=" + year +
-                ", itemType='" + itemType + '\'' +
+                "itemLot=" + getItemLot() +
+                ", buyerName='" + getBuyerName() + '\'' +
+                ", price=" + getPrice() +
+                ", year=" + getYear() +
+                ", itemType='" + getItemType() + '\'' +
                 '}';
     }
 
