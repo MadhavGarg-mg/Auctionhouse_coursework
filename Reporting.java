@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Reporting {
     List<AuctionHouse> auctionHouses = new ArrayList<>();
@@ -57,7 +55,8 @@ public class Reporting {
     public ArrayList<Integer> listGreaterThanAmount(double amount) {
         for (int i = 0; i < auctionHouses.size(); i++) {
             for(int j = 0; j < auctionHouses.get(i).items.size(); j++){
-                if (auctionHouses.get(i).items.get(j).getPrice() > amount){
+                if (auctionHouses.get(i).items.get(j).getPrice() > amount &&
+                        !itemGreater.contains(auctionHouses.get(i).items.get(j).getItemLot())){
                     itemGreater.add(auctionHouses.get(i).items.get(j).getItemLot());
                 }
             }
