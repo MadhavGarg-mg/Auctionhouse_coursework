@@ -216,7 +216,7 @@ public class ReportingIO {
                         }
                     }
                     System.out.println("\n The items with price greater than the amount are: " +
-                            reporting.highestAveragePriceYear(amount) + "\n");
+                            reporting.listGreaterThanAmount(amount) + "\n");
                     break;
 
                 case 6:

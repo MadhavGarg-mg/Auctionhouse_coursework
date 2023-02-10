@@ -4,7 +4,11 @@ public class Item {
     private double price;
     private int year;
     private String itemType;
-
+/**
+ *
+ * @poaram
+ * @returns
+ * **/
     public Item(int itemLot, String buyerName, double price, int year, String itemType) throws Exception{
         if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
             this.itemLot = itemLot;

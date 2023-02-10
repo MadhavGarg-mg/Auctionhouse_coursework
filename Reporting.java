@@ -48,7 +48,9 @@ public class Reporting {
                 nameHighestAverage = auctionHouses.get(i).getName();
             }
         }
-        return nameHighestAverage;
+        if(highestAveragePrice != 0){
+        return nameHighestAverage;}
+        else return null;
     }
 
     ArrayList<Integer> itemGreater = new ArrayList<>();
