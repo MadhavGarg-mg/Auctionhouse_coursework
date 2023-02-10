@@ -17,22 +17,25 @@ public class Reporting {
         auctionHouses.add(house);
     }
 
+
+    Item largestPrice;
     double highestPrice;
-    public double highestItemPrice() {
+    public Item highestItemPrice() {
         for (int i = 0; i < auctionHouses.size(); i++) {
             for(int j = 0; j < auctionHouses.get(i).items.size(); j++){
                 if (auctionHouses.get(i).items.get(j).getPrice() > highestPrice){
                     highestPrice = auctionHouses.get(i).items.get(j).getPrice();
+                    largestPrice = auctionHouses.get(i).items.get(j);
                 }
             }
         }
-        return highestPrice;
+        return largestPrice;
     }
 
     double highestAveragePrice;
-    String nameHighestAverage;
+    AuctionHouse nameHighestAverage;
 
-    public String highestAveragePriceYear(int year) {
+    public AuctionHouse highestAveragePriceYear(int year) {
         for (int i = 0; i < auctionHouses.size(); i++) {
             double averagePrice = 0;
             int totalItemsInYear = 0;
@@ -45,7 +48,7 @@ public class Reporting {
             averagePrice = averagePrice / totalItemsInYear;
             if (averagePrice > highestAveragePrice){
                 highestAveragePrice = averagePrice;
-                nameHighestAverage = auctionHouses.get(i).getName();
+                nameHighestAverage = auctionHouses.get(i);
             }
         }
         if(highestAveragePrice != 0){
