@@ -35,9 +35,7 @@ public class ReportingIO {
                 } catch (InputMismatchException e) {
                     System.out.println("You entered the wrong input. Please enter a number");
                     sc.next();
-                }
-            }
-
+                }}
 
             switch (choice) {
                 case 1:
@@ -61,8 +59,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             numHouses.next();
-                        }
-                    }
+                        }}
                     break;
 
                 case 2:
@@ -83,8 +80,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
 
                     System.out.println("Please enter the buyer's name: ");
                     String buyerName = sc.next();
@@ -100,8 +96,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
 
                     System.out.println("Please enter the selling year: ");
                     boolean successYear = false;
@@ -113,8 +108,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
 
                     System.out.println("Choose an item type: " +
                             "1. Furniture, 2. Painting, 3. Sculpture");
@@ -140,8 +134,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
 
                     assert itemType != null;
                     Item itemInformation = new Item(itemLot, buyerName, price, year, itemType);
@@ -155,8 +148,8 @@ public class ReportingIO {
                             auctionHouses.get(j).addItem(itemInformation);
                             houseFound = true;
                             break;
-                        }
-                    }
+                        }}
+
                     System.out.println("\n" + auctionHouses + "\n");
 
                     if(!houseFound){
@@ -181,8 +174,7 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
 
                     System.out.println("\n The auction house with the highest average sale in the year is: " +
                             reporting.highestAveragePriceYear(yearAuction) + "\n");
@@ -213,8 +205,8 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }
-                    }
+                        }}
+
                     System.out.println("\n The items with price greater than the amount are: " +
                             reporting.listGreaterThanAmount(amount) + "\n");
                     break;
