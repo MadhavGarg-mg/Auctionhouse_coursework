@@ -5,14 +5,17 @@ public class Item {
     private int year;
     private String itemType;
 
-    public Item(int itemLot, String buyerName, double price, int year, String itemType) {
-        this.itemLot = itemLot;
-        this.buyerName = buyerName;
-        this.price = price;
-        this.year = year;
-        this.itemType = itemType;
+    public Item(int itemLot, String buyerName, double price, int year, String itemType) throws Exception{
+        if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
+            this.itemLot = itemLot;
+            this.buyerName = buyerName;
+            this.price = price;
+            this.year = year;
+            this.itemType = itemType.toLowerCase();}
+        else throw new Exception("This Item type must be furniture, painting, or sculpture.");
     }
 
+    // Type check on itemType
     public String toString() {
         return "Item{" +
                 "itemLot=" + getItemLot() +
@@ -56,7 +59,7 @@ public class Item {
     }
 
     public void setItemType(String itemType){
-        this.itemType = itemType;
+        this.itemType = itemType.toLowerCase();
     }
 
     public String getItemType(){

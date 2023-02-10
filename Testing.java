@@ -1,5 +1,5 @@
 public class Testing {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Item i1 = new Item(1000, "Aaryan Dominguez", 871.10, 2002, "furniture");
         Item i2 = new Item(1001, "Cecilia Barker", 411.80, 2000, "furniture");
         Item i3 = new Item(1002, "Xander Leon", 1121.40, 2005, "painting");

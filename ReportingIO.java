@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class ReportingIO {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         new ReportingIO().run();
     }
 
-    public void run() {
+    public void run() throws Exception {
         List<AuctionHouse> auctionHouses = new ArrayList<>();
 
         Reporting reporting = new Reporting();
@@ -25,7 +25,6 @@ public class ReportingIO {
 
             System.out.println("Please select an option");
             System.out.println(options);
-
 
             boolean successChoice = false;
             int choice = 0;
@@ -57,7 +56,7 @@ public class ReportingIO {
                                 auctionHouses.add(auctionHouseName);
                                 reporting.addAuctionHouse(auctionHouseName);
                             }
-                            System.out.println(auctionHouses);
+                            System.out.println("\n" + auctionHouses + "\n");
                             successAuctionHouses = true;
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
@@ -72,9 +71,6 @@ public class ReportingIO {
                         System.out.println("Please enter an auction house before you enter an item");
                         break;
                     }
-
-                    System.out.println("What auction house do you want to add these items to? ");
-                    String auctionName = sc.next();
 
                     System.out.println("Please enter the item lot number: ");
 
@@ -120,20 +116,51 @@ public class ReportingIO {
                         }
                     }
 
-                    System.out.println("Please enter the item type: ");
-                    String itemType = sc.next();
-
-
-                    Item itemInformation = new Item(itemLot, buyerName, price, year, itemType);
-
-
-                    for (int j = 0; j < auctionHouses.size(); j++) {
-                        if (Objects.equals(auctionHouses.get(j).getName(), auctionName)) {
-                            auctionHouses.get(j).addItem(itemInformation);
+                    System.out.println("Choose an item type: " +
+                            "1. Furniture, 2. Painting, 3. Sculpture");
+                    boolean successType = false;
+                    int type;
+                    String itemType = null;
+                    while (!successType) {
+                        try {
+                            type = sc.nextInt();
+                            if (type == 1){
+                                itemType = "furniture";
+                            }
+                            else if(type == 2){
+                                itemType = "painting";
+                            }
+                            else if (type == 3) {
+                                itemType = "sculpture";
+                            }
+                            else{
+                                System.out.println("This is not a valid option");
+                            }
+                            successType = true;
+                        } catch (InputMismatchException e) {
+                            System.out.println("You entered the wrong input. Please enter a number");
+                            sc.next();
                         }
                     }
 
-                    System.out.println(auctionHouses);
+                    assert itemType != null;
+                    Item itemInformation = new Item(itemLot, buyerName, price, year, itemType);
+
+                    System.out.println("What auction house do you want to add these items to? ");
+                    String auctionName = sc.next();
+
+                    boolean houseFound = false;
+                    for (int j = 0; j < auctionHouses.size(); j++) {
+                        if (Objects.equals(auctionHouses.get(j).getName(), auctionName)) {
+                            auctionHouses.get(j).addItem(itemInformation);
+                            houseFound = true;
+                            break;
+                        }
+                    }
+                    System.out.println("\n" + auctionHouses + "\n");
+
+                    if(!houseFound){
+                    System.out.println("This auction house doesn't exist :( . Try again");}
                     break;
 
                 case 3:
@@ -157,9 +184,8 @@ public class ReportingIO {
                         }
                     }
 
-                    System.out.println("The auction house with the highest average sale in the year is: " +
-                            reporting.highestAveragePriceYear(yearAuction));
-//                    System.out.println(reporting.highestAveragePriceYear(sc.nextInt()));
+                    System.out.println("\n The auction house with the highest average sale in the year is: " +
+                            reporting.highestAveragePriceYear(yearAuction) + "\n");
 
                     break;
 
@@ -168,8 +194,7 @@ public class ReportingIO {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
-                    System.out.println(reporting.highestItemPrice());
-
+                    System.out.println("\n The most expensive item is: " + reporting.highestItemPrice()  + "\n");
                     break;
 
                 case 5:
@@ -190,8 +215,8 @@ public class ReportingIO {
                             sc.next();
                         }
                     }
-                    System.out.println("The items with price greater than the amount are: " +
-                            reporting.highestAveragePriceYear(amount));
+                    System.out.println("\n The items with price greater than the amount are: " +
+                            reporting.highestAveragePriceYear(amount) + "\n");
                     break;
 
                 case 6:
