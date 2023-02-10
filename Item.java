@@ -6,9 +6,12 @@ public class Item {
     private String itemType;
 /**
  *
- * @poaram
- * @returns
- * **/
+ * @param itemLot:
+ * @param buyerName: is for adding the name of the buyer
+ * @param price:
+ * @param year:
+ * @param itemType:
+ * */
     public Item(int itemLot, String buyerName, double price, int year, String itemType) throws Exception{
         if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
             this.itemLot = itemLot;
