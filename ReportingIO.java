@@ -38,11 +38,9 @@ public class ReportingIO {
                 }}
 
             switch (choice) {
-                case 1:
-
+                case 1 -> {
                     System.out.println("How many houses do you want to add? ");
                     Scanner numHouses = new Scanner(System.in);
-
                     boolean successAuctionHouses = false;
                     while (!successAuctionHouses) {
                         try {
@@ -59,18 +57,15 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             numHouses.next();
-                        }}
-                    break;
-
-                case 2:
-
+                        }
+                    }
+                }
+                case 2 -> {
                     if (auctionHouses.size() == 0) {
                         System.out.println("Please enter an auction house before you enter an item");
                         break;
                     }
-
                     System.out.println("Please enter the item lot number: ");
-
                     boolean successItemLot = false;
                     int itemLot = 0;
                     while (!successItemLot) {
@@ -80,12 +75,10 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     System.out.println("Please enter the buyer's name: ");
                     String buyerName = sc.next();
-
-
                     System.out.println("Please enter the selling price: ");
                     boolean successPrice = false;
                     double price = 0;
@@ -96,8 +89,8 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     System.out.println("Please enter the selling year: ");
                     boolean successYear = false;
                     int year = 0;
@@ -108,8 +101,8 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     System.out.println("Choose an item type: " +
                             "1. Furniture, 2. Painting, 3. Sculpture");
                     boolean successType = false;
@@ -118,53 +111,45 @@ public class ReportingIO {
                     while (!successType) {
                         try {
                             type = sc.nextInt();
-                            if (type == 1){
+                            if (type == 1) {
                                 itemType = "furniture";
-                            }
-                            else if(type == 2){
+                            } else if (type == 2) {
                                 itemType = "painting";
-                            }
-                            else if (type == 3) {
+                            } else if (type == 3) {
                                 itemType = "sculpture";
-                            }
-                            else{
+                            } else {
                                 System.out.println("This is not a valid option");
                             }
                             successType = true;
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     assert itemType != null;
                     Item itemInformation = new Item(itemLot, buyerName, price, year, itemType);
-
                     System.out.println("What auction house do you want to add these items to? ");
                     String auctionName = sc.next();
-
                     boolean houseFound = false;
-                    for (int j = 0; j < auctionHouses.size(); j++) {
-                        if (Objects.equals(auctionHouses.get(j).getName(), auctionName)) {
-                            auctionHouses.get(j).addItem(itemInformation);
+                    for (AuctionHouse auctionHouse : auctionHouses) {
+                        if (Objects.equals(auctionHouse.getName(), auctionName)) {
+                            auctionHouse.addItem(itemInformation);
                             houseFound = true;
                             break;
-                        }}
-
+                        }
+                    }
                     System.out.println("\n" + auctionHouses + "\n");
-
-                    if(!houseFound){
-                    System.out.println("This auction house doesn't exist :( . Try again");}
-                    break;
-
-                case 3:
+                    if (!houseFound) {
+                        System.out.println("This auction house doesn't exist :( . Try again");
+                    }
+                }
+                case 3 -> {
                     if (auctionHouses.size() == 0) {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
-
                     System.out.println("For which year would you like to get the auction house with the largest " +
                             "average item price");
-
                     boolean successYearAuctionHouse = false;
                     int yearAuction = 0;
                     while (!successYearAuctionHouse) {
@@ -174,28 +159,24 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     System.out.println("\n The auction house with the highest average sale in the year is: " +
                             reporting.highestAveragePriceYear(yearAuction) + "\n");
-
-                    break;
-
-                case 4:
+                }
+                case 4 -> {
                     if (auctionHouses.size() == 0) {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
-                    System.out.println("\n The most expensive item is: " + reporting.highestItemPrice()  + "\n");
-                    break;
-
-                case 5:
+                    System.out.println("\n The most expensive item is: " + reporting.highestItemPrice() + "\n");
+                }
+                case 5 -> {
                     if (auctionHouses.size() == 0) {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
                     System.out.println("Please enter the amount");
-
                     boolean successAmount = false;
                     int amount = 0;
                     while (!successAmount) {
@@ -205,18 +186,16 @@ public class ReportingIO {
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
-                        }}
-
+                        }
+                    }
                     System.out.println("\n The items with price greater than the amount are: " +
                             reporting.listGreaterThanAmount(amount) + "\n");
-                    break;
-
-                case 6:
+                }
+                case 6 -> {
                     System.out.println("Quitting");
                     quit = true;
-                    break;
-                default:
-                    System.out.println("Not a valid option");
+                }
+                default -> System.out.println("Not a valid option");
             }
         }
 
