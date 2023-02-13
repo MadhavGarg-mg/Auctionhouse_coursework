@@ -87,7 +87,7 @@ public class Testing {
         r1.addAuctionHouse(a3);
         System.out.println(r1);
 
-        System.out.println("The highest item price is: " + r1.highestItemPrice());
+        System.out.println("The item with the highest price is: " + r1.highestItemPrice());
 
         System.out.println("The house with the highest average item price in year 2000: " +
                 r1.highestAveragePriceYear(2000));
