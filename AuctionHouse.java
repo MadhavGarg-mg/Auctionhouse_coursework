@@ -31,10 +31,10 @@ public class AuctionHouse {
     Item item;
     double itemPrice;
     public Item mostExpensiveItem() {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getPrice() > itemPrice){
-                item = items.get(i);
-                itemPrice = items.get(i). getPrice();
+        for (Item value : items) {
+            if (value.getPrice() > itemPrice) {
+                item = value;
+                itemPrice = value.getPrice();
             }
         }
         return item;
@@ -43,9 +43,9 @@ public class AuctionHouse {
     double averagePrice;
     int numItems;
     public double averageItemYear(int year) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getYear() == year){
-                averagePrice += items.get(i).getPrice();
+        for (Item value : items) {
+            if (value.getYear() == year) {
+                averagePrice += value.getPrice();
                 numItems += 1;
             }
         }
@@ -54,9 +54,9 @@ public class AuctionHouse {
 
     ArrayList<Item> itemList = new ArrayList<>();
     public ArrayList<Item> listMoreAmount(int amount) {
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getPrice() > amount){
-                itemList.add(items.get(i));
+        for (Item value : items) {
+            if (value.getPrice() > amount) {
+                itemList.add(value);
             }
         }
         return itemList;
