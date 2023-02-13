@@ -85,7 +85,10 @@ public class AuctionHouse {
                 numItems += 1;
             }
         }
-        return totalPrice / numItems;
+        if (numItems != 0){
+        return totalPrice / numItems;}
+
+        else return 0;
     }
 
     ArrayList<Item> itemList = new ArrayList<>();
