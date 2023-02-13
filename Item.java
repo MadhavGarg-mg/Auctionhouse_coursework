@@ -16,14 +16,27 @@ public class Item {
  * @param price represents the price of the sold item
  * @param year represents the year when the item was sold
  * @param itemType represents the type of item
+ * @throws Exception if the item lot is not a positive integer
+ * @throws Exception if the price is not a positive double
+ * @throws Exception if the year is not between 1 and 2023 (inclusive)
  * @throws Exception if the item type is not a furniture, painting, and sculpture
- * */
+ */
     public Item(int itemLot, String buyerName, double price, int year, String itemType) throws Exception{
+        if(itemLot > 0){
+            this.itemLot = itemLot;}
+        else throw new Exception("The item lot must be a positive value.");
+
+        this.buyerName = buyerName;
+
+        if(price > 0){
+            this.price = price;}
+        else throw new Exception("The item price must be a positive value");
+
+        if(year > 0 && year < 2024){
+            this.year = year;}
+        else throw new Exception("The year must be positive and the item should be sold before 2024.");
+
         if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
-            this.itemLot = itemLot;
-            this.buyerName = buyerName;
-            this.price = price;
-            this.year = year;
             this.itemType = itemType.toLowerCase();}
         else throw new Exception("This Item type must be furniture, painting, or sculpture.");
     }
@@ -45,9 +58,12 @@ public class Item {
     /**
      * Sets the item lot number to the desired item lot number
      * @param itemLot represents the item lot number of an item
+     * @throws Exception if the item lot is not a positive integer
      */
-    public void setItemLot(int itemLot){
-        this.itemLot = itemLot;
+    public void setItemLot(int itemLot) throws Exception {
+        if(itemLot > 0){
+            this.itemLot = itemLot;}
+        else throw new Exception("The item lot must be a positive value.");
     }
 
     /**
@@ -77,9 +93,12 @@ public class Item {
     /**
      * Sets the price for an item
      * @param price represents the price for an item
+     * @throws Exception if the price is not a positive double
      */
-    public void setPrice(int price){
-        this.price = price;
+    public void setPrice(int price) throws Exception {
+        if(price > 0){
+            this.price = price;}
+        else throw new Exception("The price must be a positive double.");
     }
 
     /**
@@ -93,9 +112,12 @@ public class Item {
     /**
      * Sets the year for an item
      * @param year represents the year when the item was sold
+     * @throws Exception if the year is not between 1 and 2023 (inclusive)
      */
-    public void setYear(int year){
-        this.year = year;
+    public void setYear(int year) throws Exception {
+        if(year > 0 && year < 2024){
+            this.year = year;}
+        else throw new Exception("The year must be positive and the item should be sold before 2024.");
     }
 
     /**
@@ -109,9 +131,12 @@ public class Item {
     /**
      * Sets the item type for an item
      * @param itemType represents the type of item sold
+     * @throws Exception if the item type is not a furniture, painting, and sculpture
      */
-    public void setItemType(String itemType){
-        this.itemType = itemType.toLowerCase();
+    public void setItemType(String itemType) throws Exception {
+        if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
+            this.itemType = itemType.toLowerCase();}
+        else throw new Exception("This Item type must be furniture, painting, or sculpture.");
     }
 
     /**
