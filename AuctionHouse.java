@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * This class represents an auction house. It has methods relating to the abstraction of an auction house and
- * methods to get unique items
+ * methods to get required items.
  *
  * @author Madhav Garg
  */
@@ -56,7 +56,6 @@ public class AuctionHouse {
 
     Item item;
     double itemPrice;
-
     /**
      * Returns the most expensive item sold in the auction house
      * @return the most expensive item
@@ -64,14 +63,14 @@ public class AuctionHouse {
     public Item mostExpensiveItem() {
         for (Item value : items) {
             if (value.getPrice() > itemPrice) {
-                item = value;
-                itemPrice = value.getPrice();
+                item = value; // replaces item if new item is more expensive
+                itemPrice = value.getPrice(); // stores new price to check other items with the new price
             }
         }
         return item;
     }
 
-    double averagePrice;
+    double totalPrice;
     int numItems;
 
     /**
@@ -82,11 +81,11 @@ public class AuctionHouse {
     public double averageItemYear(int year) {
         for (Item value : items) {
             if (value.getYear() == year) {
-                averagePrice += value.getPrice();
+                totalPrice += value.getPrice(); // Adds the price all of items
                 numItems += 1;
             }
         }
-        return averagePrice / numItems;
+        return totalPrice / numItems;
     }
 
     ArrayList<Item> itemList = new ArrayList<>();
@@ -99,7 +98,7 @@ public class AuctionHouse {
     public ArrayList<Item> listMoreAmount(int amount) {
         for (Item value : items) {
             if (value.getPrice() > amount) {
-                itemList.add(value);
+                itemList.add(value); // Putting items in a list if their amount is more than the given amount
             }
         }
         return itemList;
