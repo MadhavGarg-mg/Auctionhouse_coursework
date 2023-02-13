@@ -17,18 +17,23 @@ public class Testing {
 
         i1.setItemLot(1005);
         System.out.println("The item lot is: " + i1.getItemLot());
+        // Crash i1.setItemLot(-1000) as the item lot cannot be a negative value
 
         i1.setBuyerName("Chester Green");
         System.out.println("The buyer name is: " + i1.getBuyerName());
 
         i1.setPrice(900);
         System.out.println("The item price is: " + i1.getPrice());
+        // Crash i1.setPrice(-1000) as the item price cannot be a negative value
 
         i1.setYear(2000);
         System.out.println("The item sold year is: " + i1.getYear());
+        // Crash i1.setYear(-2000) as the year cannot be a negative value
+        // Crash i1.setYear(2025) as the year 2025 has not started
 
         i1.setItemType("painting");
         System.out.println("The item type is: " + i1.getItemType());
+        // Crash setItemType("electronic") as item type can only be a furniture, sculpture, or a painting
 
         System.out.println(i1);
         System.out.println(i2);
@@ -66,9 +71,13 @@ public class Testing {
         System.out.println(a2.averageItemYear(2000));
         System.out.println(a3.averageItemYear(2000));
 
-        System.out.println(a1.listMoreAmount(500));
+        System.out.println(a1.listMoreAmount(5000));
         System.out.println(a2.listMoreAmount(500));
         System.out.println(a3.listMoreAmount(500));
+
+        System.out.println(a1.listMoreAmount(500));
+
+        System.out.println(a1.listMoreAmount(5000));
 
         // Testing all the methods in the Reporting class.
 
@@ -86,6 +95,9 @@ public class Testing {
 
         System.out.println("The house with the highest average item price in year 2000: " +
                 r1.highestAveragePriceYear(2000));
+
+        System.out.println("The house with the highest average item price in year 10: " +
+                r1.highestAveragePriceYear(10));
 
         System.out.println(r1.listGreaterThanAmount(2000));
     }
