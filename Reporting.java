@@ -32,13 +32,13 @@ public class Reporting {
     }
 
 
-    Item itemLargestPrice;
-    double highestPrice;
     /**
      * Returns the most expensive item sold in all the auction houses
      * @return the most expensive item ever sold
      */
     public Item highestItemPrice() {
+        Item itemLargestPrice = null;
+        double highestPrice = 0;
         for (AuctionHouse auctionHouse : auctionHouses) {
             for (int j = 0; j < auctionHouse.items.size(); j++) {
                 if (auctionHouse.items.get(j).getPrice() > highestPrice) {
@@ -50,15 +50,14 @@ public class Reporting {
         return itemLargestPrice;
     }
 
-    double highestAveragePrice;
-    AuctionHouse nameHighestAverage;
-
     /**
      * Returns the auction house with the highest average item price for a particular year
      * @param year the year when an item was sold
      * @return auction house with the highest average item price for the given year
      */
     public AuctionHouse highestAveragePriceYear(int year) {
+        double highestAveragePrice = 0;
+        AuctionHouse nameHighestAverage = null;
         for (AuctionHouse auctionHouse : auctionHouses) {
             double totalPrice = 0;
             int totalItemsInYear = 0;
@@ -74,12 +73,9 @@ public class Reporting {
                 nameHighestAverage = auctionHouse;
             }
         }
-        if(highestAveragePrice != 0){
-        return nameHighestAverage;} // This loop checks for years with no items sold
-        else return null; // returns null if no auction houses with any item in an year are found
+        return nameHighestAverage;
     }
 
-    List<Item> itemGreater = new ArrayList<>();
 
     /**
      * Returns the list of all items sold with the price more than the amount
@@ -87,6 +83,7 @@ public class Reporting {
      * @return List of items which were sold for more than the given amount
      */
     public List<Item> listGreaterThanAmount(double amount) {
+        List<Item> itemGreater = new ArrayList<>();
         for (AuctionHouse auctionHouse : auctionHouses) {
             for (int j = 0; j < auctionHouse.items.size(); j++) {
                 if (auctionHouse.items.get(j).getPrice() > amount &&
