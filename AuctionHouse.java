@@ -54,13 +54,13 @@ public class AuctionHouse {
         items.add(item);
     }
 
-    Item item;
-    double itemPrice;
     /**
      * Returns the most expensive item sold in the auction house
      * @return the most expensive item
      */
     public Item mostExpensiveItem() {
+        Item item = null;
+        double itemPrice = 0;
         for (Item value : items) {
             if (value.getPrice() > itemPrice) {
                 item = value; // replaces item if new item is more expensive
@@ -70,8 +70,6 @@ public class AuctionHouse {
         return item;
     }
 
-    double totalPrice;
-    int numItems;
 
     /**
      * Returns the average item price for a given auction house for a particular year
@@ -79,6 +77,8 @@ public class AuctionHouse {
      * @return the average item price
      */
     public double averageItemYear(int year) {
+        double totalPrice = 0;
+        int numItems = 0;
         for (Item value : items) {
             if (value.getYear() == year) {
                 totalPrice += value.getPrice(); // Adds the price all of items
@@ -91,7 +91,6 @@ public class AuctionHouse {
         else return 0;
     }
 
-    ArrayList<Item> itemList = new ArrayList<>();
 
     /**
      * Returns the list of items sold for more than a given amount
@@ -99,6 +98,7 @@ public class AuctionHouse {
      * @return a list of items
      */
     public ArrayList<Item> listMoreAmount(int amount) {
+        ArrayList<Item> itemList = new ArrayList<>();
         for (Item value : items) {
             if (value.getPrice() > amount) {
                 itemList.add(value); // Putting items in a list if their amount is more than the given amount
