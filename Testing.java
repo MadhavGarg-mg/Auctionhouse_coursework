@@ -48,15 +48,10 @@ public class Testing {
 
         a1.addItem(i1);
         a1.addItem(i2);
-        a1.addItem(i3);
-        a1.addItem(i4);
 
-        a2.addItem(i1);
-        a2.addItem(i2);
-        a2.addItem(i5);
+        a2.addItem(i3);
+        a2.addItem(i4);
 
-        a3.addItem(i1);
-        a3.addItem(i3);
         a3.addItem(i5);
 
         System.out.println(a1);
