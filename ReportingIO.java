@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * This class represents the reporting IO which gives the user an interactive menu. It has the main and one method to
+ * check for some values
+ *
+ * @author Madhav Garg
+ */
 public class ReportingIO {
     public static void main(String[] args) throws Exception {
         new ReportingIO().run();
@@ -26,16 +32,7 @@ public class ReportingIO {
             System.out.println("Please select an option");
             System.out.println(options);
 
-            boolean successChoice = false;
-            int choice = 0;
-            while (!successChoice) {
-                try {
-                    choice = sc.nextInt();
-                    successChoice = true;
-                } catch (InputMismatchException e) {
-                    System.out.println("You entered the wrong input. Please enter a number");
-                    sc.next();
-                }}
+            int choice = (int)success(sc);
 
             switch (choice) {
                 case 1 -> {
@@ -65,44 +62,36 @@ public class ReportingIO {
                         System.out.println("Please enter an auction house before you enter an item");
                         break;
                     }
-                    System.out.println("Please enter the item lot number: ");
-                    boolean successItemLot = false;
-                    int itemLot = 0;
-                    while (!successItemLot) {
-                        try {
-                            itemLot = sc.nextInt();
-                            successItemLot = true;
-                        } catch (InputMismatchException e) {
-                            System.out.println("You entered the wrong input. Please enter a number");
-                            sc.next();
+                    System.out.println("\n" + auctionHouses + "\n");
+                    System.out.println("What auction house do you want to add these items to? ");
+                    String auctionName = sc.next();
+                    AuctionHouse name = null;
+                    boolean houseFound = false;
+                    for (AuctionHouse auctionHouse : auctionHouses) {
+                        if (Objects.equals(auctionHouse.getName(), auctionName)) {
+                            name = auctionHouse;
+                            houseFound = true;
+                            break;
                         }
                     }
+                    if (!houseFound) {
+                        System.out.println("This auction house doesn't exist :( . Try again");
+                        break;
+                    }
+
+
+                    System.out.println("Please enter the item lot number: ");
+                    int itemLot = (int) success(sc);
+
                     System.out.println("Please enter the buyer's name: ");
                     String buyerName = sc.next();
+
                     System.out.println("Please enter the selling price: ");
-                    boolean successPrice = false;
-                    double price = 0;
-                    while (!successPrice) {
-                        try {
-                            price = sc.nextDouble();
-                            successPrice = true;
-                        } catch (InputMismatchException e) {
-                            System.out.println("You entered the wrong input. Please enter a number");
-                            sc.next();
-                        }
-                    }
+                    double price = success(sc);
+
                     System.out.println("Please enter the selling year: ");
-                    boolean successYear = false;
-                    int year = 0;
-                    while (!successYear) {
-                        try {
-                            year = sc.nextInt();
-                            successYear = true;
-                        } catch (InputMismatchException e) {
-                            System.out.println("You entered the wrong input. Please enter a number");
-                            sc.next();
-                        }
-                    }
+                    int year = (int) success(sc);
+
                     System.out.println("Choose an item type: " +
                             "1. Furniture, 2. Painting, 3. Sculpture");
                     boolean successType = false;
@@ -113,54 +102,37 @@ public class ReportingIO {
                             type = sc.nextInt();
                             if (type == 1) {
                                 itemType = "furniture";
+                                successType = true;
                             } else if (type == 2) {
                                 itemType = "painting";
+                                successType = true;
                             } else if (type == 3) {
                                 itemType = "sculpture";
+                                successType = true;
                             } else {
                                 System.out.println("This is not a valid option");
                             }
-                            successType = true;
                         } catch (InputMismatchException e) {
                             System.out.println("You entered the wrong input. Please enter a number");
                             sc.next();
                         }
                     }
-                    assert itemType != null;
                     Item itemInformation = new Item(itemLot, buyerName, price, year, itemType);
-                    System.out.println("What auction house do you want to add these items to? ");
-                    String auctionName = sc.next();
-                    boolean houseFound = false;
-                    for (AuctionHouse auctionHouse : auctionHouses) {
-                        if (Objects.equals(auctionHouse.getName(), auctionName)) {
-                            auctionHouse.addItem(itemInformation);
-                            houseFound = true;
-                            break;
-                        }
-                    }
+
+                    name.addItem(itemInformation);
+
                     System.out.println("\n" + auctionHouses + "\n");
-                    if (!houseFound) {
-                        System.out.println("This auction house doesn't exist :( . Try again");
-                    }
+
                 }
                 case 3 -> {
                     if (auctionHouses.size() == 0) {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
+                    System.out.println("\n" + auctionHouses + "\n");
                     System.out.println("For which year would you like to get the auction house with the largest " +
                             "average item price");
-                    boolean successYearAuctionHouse = false;
-                    int yearAuction = 0;
-                    while (!successYearAuctionHouse) {
-                        try {
-                            yearAuction = sc.nextInt();
-                            successYearAuctionHouse = true;
-                        } catch (InputMismatchException e) {
-                            System.out.println("You entered the wrong input. Please enter a number");
-                            sc.next();
-                        }
-                    }
+                    int yearAuction = (int)success(sc);
                     System.out.println("\n The auction house with the highest average sale in the year is: " +
                             reporting.highestAveragePriceYear(yearAuction) + "\n");
                 }
@@ -176,18 +148,10 @@ public class ReportingIO {
                         System.out.println("There are no auction houses to get any data from");
                         break;
                     }
+
+                    System.out.println("\n" + auctionHouses + "\n");
                     System.out.println("Please enter the amount");
-                    boolean successAmount = false;
-                    int amount = 0;
-                    while (!successAmount) {
-                        try {
-                            amount = sc.nextInt();
-                            successAmount = true;
-                        } catch (InputMismatchException e) {
-                            System.out.println("You entered the wrong input. Please enter a number");
-                            sc.next();
-                        }
-                    }
+                    double amount = success(sc);
                     System.out.println("\n The items with price greater than the amount are: " +
                             reporting.listGreaterThanAmount(amount) + "\n");
                 }
@@ -199,5 +163,28 @@ public class ReportingIO {
             }
         }
 
+    }
+
+    /**
+     * Returns a num which can be used to define year, item lot, and other values that uses numbers required from an
+     * input.
+     * @param sc represents the user input
+     * @return num which represents a number of type double
+     */
+    private double success(Scanner sc) {
+        boolean success = false;
+        double num = 0;
+        while (!success) {
+            try {
+                num = sc.nextDouble();
+                if (num > 0){
+                success = true;}
+                else System.out.println("The value can not be negative. Try again");
+            } catch (InputMismatchException e) {
+                System.out.println("You entered the wrong input. Please enter a number");
+                sc.next();
+            }
+        }
+        return num;
     }
 }
