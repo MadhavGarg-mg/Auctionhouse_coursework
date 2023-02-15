@@ -24,7 +24,7 @@ public class AuctionHouse {
      * @return String representation of the auction house
      */
     public String toString() {
-        return "AuctionHouse{" +
+        return "\nAuctionHouse{" +
                 "name='" + name + '\'' +
                 ", items=" + items +
                 '}';

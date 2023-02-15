@@ -47,7 +47,7 @@ public class Item {
      * @return String representation of the item
      */
     public String toString() {
-        return "Item{" +
+        return "\nItem{" +
                 "itemLot=" + getItemLot() +
                 ", buyerName='" + getBuyerName() + '\'' +
                 ", price=" + getPrice() +
