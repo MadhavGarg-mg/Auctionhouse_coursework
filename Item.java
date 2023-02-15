@@ -36,8 +36,9 @@ public class Item {
             this.year = year;}
         else throw new Exception("The year must be positive and the item should be sold before 2024.");
 
+        itemType = itemType.toLowerCase();
         if(itemType.equals("furniture") || itemType.equals("painting") || itemType.equals("sculpture")){
-            this.itemType = itemType.toLowerCase();}
+            this.itemType = itemType;}
         else throw new Exception("This Item type must be furniture, painting, or sculpture.");
     }
 
