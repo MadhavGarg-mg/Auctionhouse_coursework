@@ -12,28 +12,90 @@ public class Testing {
 
         // Testing all the methods in the Item class.
 
-        System.out.println("Testing Item class");
-        System.out.println(" ");
+        System.out.println("Testing the Item class");
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the setter and getter for item lot");
+
+        System.out.println("Getting the item lot for the item");
+
+        System.out.println("The item lot for the item is: " + i1.getItemLot());
+
+        System.out.println("Setting the item lot to 1005");
         i1.setItemLot(1005);
-        System.out.println("The item lot is: " + i1.getItemLot());
+
+        System.out.println("Getting the new item lot for the item");
+
+        System.out.println("The item lot for the item is: " + i1.getItemLot() + "\n");
+
         // Crash i1.setItemLot(-1000) as the item lot cannot be a negative value
 
-        i1.setBuyerName("Chester Green");
-        System.out.println("The buyer name is: " + i1.getBuyerName());
+        System.out.println("-----------------------------------------------------------------------------------------");
 
+        System.out.println("\nTesting the setter and getter for buyer name");
+
+        System.out.println("Getting the buyer name for the item");
+
+        System.out.println("The buyer name for the item is: " + i1.getBuyerName());
+
+        System.out.println("Setting the buyer name to Chester Green");
+        i1.setBuyerName("Chester Green");
+
+        System.out.println("Getting the new buyer name for the item");
+
+        System.out.println("The buyer name for the item is: " + i1.getBuyerName() + "\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the setter and getter for the price");
+
+        System.out.println("Getting the price for the item");
+
+        System.out.println("The price for the item is: " + i1.getPrice());
+
+        System.out.println("Setting the price to 900");
         i1.setPrice(900);
-        System.out.println("The item price is: " + i1.getPrice());
+
+        System.out.println("Getting the new price for the item");
+
+        System.out.println("The price for the item is: " + i1.getPrice() + "\n");
+
         // Crash i1.setPrice(-1000) as the item price cannot be a negative value
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the setter and getter for the year");
+
+        System.out.println("Getting the year for the item");
+
+        System.out.println("The sold year for the item is: " + i1.getYear());
+
+        System.out.println("Setting the year to 2000");
         i1.setYear(2000);
-        System.out.println("The item sold year is: " + i1.getYear());
+
+        System.out.println("Getting the new year for the item");
+        System.out.println("The sold year for the item is: " + i1.getYear() + "\n");
+
         // Crash i1.setYear(-2000) as the year cannot be a negative value
         // Crash i1.setYear(2025) as the year 2025 has not started
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the setter and getter for the item type");
+
+        System.out.println("Getting the item type for the item");
+
+        System.out.println("The item type fot the item: " + i1.getItemType());
+
+        System.out.println("Setting the item type to painting");
         i1.setItemType("painting");
-        System.out.println("The item type is: " + i1.getItemType());
+
+        System.out.println("The item type fot the item: " + i1.getItemType() + "\n");
+
         // Crash setItemType("electronic") as item type can only be a furniture, sculpture, or a painting
+
+        System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println(i1);
         System.out.println(i2);
