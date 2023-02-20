@@ -1,3 +1,8 @@
+/**
+ * This class represents testing for all the classes
+ *
+ * @author Madhav Garg
+ */
 public class Testing {
     public static void main(String[] args) throws Exception {
         Item i1 = new Item(1000, "Aaryan Dominguez", 871.10, 2002, "furniture");
