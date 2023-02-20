@@ -97,6 +97,7 @@ public class Testing {
 
         System.out.println("-----------------------------------------------------------------------------------------");
 
+        System.out.println("\nPrinting the items.\n");
         System.out.println(i1);
         System.out.println(i2);
         System.out.println(i3);
@@ -105,62 +106,103 @@ public class Testing {
 
         // Testing all the methods in the AuctionHouse class.
 
-        System.out.println(" ");
-        System.out.println("Testing AuctionHouse class");
-        System.out.println(" ");
 
-        System.out.println("Changing the auction house name from " + a1.getName());
+        System.out.println("\nTesting AuctionHouse class\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the setter and getter for auction house lot");
+
+        System.out.println("Getting the name of the auction house");
+
+        System.out.println("The name of the auction house is: " + a1.getName());
+
+        System.out.println("Setting the auction house name to Redemption of Harmony");
         a1.setName("Redemption of Harmony");
-        System.out.println("The Auction House name is: " + a1.getName());
+
+        System.out.println("Getting the new name of the auction house");
+        System.out.println("The name of the auction house is: " + a1.getName() + "\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nAuction house without any item: " + a1);
+        System.out.println("\nAdding i1 and i2 to the auction house\n");
 
         a1.addItem(i1);
         a1.addItem(i2);
+        System.out.println("Auction house with i1 and i2: " + a1);
 
+        System.out.println("\nAuction house without any item: " + a2);
+        System.out.println("\nAdding i3 and i4 to the auction house\n");
         a2.addItem(i3);
         a2.addItem(i4);
 
+        System.out.println("Auction house with i3 and i4: " + a2);
+
+        System.out.println("\nAuction house without any item: " + a3);
+        System.out.println("\nAdding i5 to the auction house\n");
         a3.addItem(i5);
 
-        System.out.println(a1);
-        System.out.println(a2);
-        System.out.println(a3);
+        System.out.println("Auction house with i5: " + a3 + "\n");
 
-        System.out.println("The most expensive item is " + a1.mostExpensiveItem());
-        System.out.println("The most expensive item is " + a2.mostExpensiveItem());
-        System.out.println("The most expensive item is " + a3.mostExpensiveItem());
+        System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println(a1.averageItemYear(2000));
-        System.out.println(a2.averageItemYear(2000));
-        System.out.println(a3.averageItemYear(2000));
+        System.out.println("\nTesting the mostExpensiveItem() function\n");
 
-        System.out.println(a1.listMoreAmount(5000));
-        System.out.println(a2.listMoreAmount(500));
-        System.out.println(a3.listMoreAmount(500));
+        System.out.println("The most expensive item from a1 is: " + a1.mostExpensiveItem());
+        System.out.println("The most expensive item from a2 is: " + a2.mostExpensiveItem());
+        System.out.println("The most expensive item from a3 is: " + a3.mostExpensiveItem() + "\n");
 
-        System.out.println(a1.listMoreAmount(500));
+        System.out.println("-----------------------------------------------------------------------------------------");
 
-        System.out.println(a1.listMoreAmount(5000));
+        System.out.println("\nTesting the averageItemYear() function\n");
+        System.out.println("The average cost of items in year 2000 for auction house a1 is: " + a1.averageItemYear(2000));
+        System.out.println("The average cost of items in year 2000 for auction house a1 is: " + a2.averageItemYear(2000));
+        System.out.println("The average cost of items in year 2000 for auction house a1 is: " + a3.averageItemYear(2000));
+        System.out.println("The average cost of items in year 2010 for auction house a1 is: " + a3.averageItemYear(2010) + "\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the listMoreAmount() function\n");
+        System.out.println("The list of all items in a1 more than 5000: " + a1.listMoreAmount(5000));
+        System.out.println("The list of all items in a1 more than 500: " + a1.listMoreAmount(500));
+        System.out.println("The list of all items in a1 more than 200: " + a1.listMoreAmount(200) + "\n");
+
+        System.out.println("The list of all items in a2 more than 500: " + a2.listMoreAmount(500) + "\n");
+        System.out.println("The list of all items in a3 more than 500: " + a3.listMoreAmount(500) + "\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
 
         // Testing all the methods in the Reporting class.
 
-        System.out.println(" ");
-        System.out.println("Testing Reporting class");
-        System.out.println(" ");
+        System.out.println("\nTesting Reporting class\n");
 
-        System.out.println(r1);
+        System.out.println("Reporting without any auction houses: " + r1);
+        System.out.println("\nAdding a1, a2, and a3 to reporting\n");
         r1.addAuctionHouse(a1);
         r1.addAuctionHouse(a2);
         r1.addAuctionHouse(a3);
-        System.out.println(r1);
+        System.out.println("Reporting with all the auction houses: " + r1 + "\n");
 
-        System.out.println("The item with the highest price is: " + r1.highestItemPrice());
+        System.out.println("-----------------------------------------------------------------------------------------");
 
+        System.out.println("\nTesting the highestItemPrice() function\n");
+        System.out.println("The item with the highest price is: " + r1.highestItemPrice() + "\n");
+
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the highestAveragePriceYear() function\n");
         System.out.println("The house with the highest average item price in year 2000: " +
-                r1.highestAveragePriceYear(2000));
+                r1.highestAveragePriceYear(2000) + "\n");
 
         System.out.println("The house with the highest average item price in year 10: " +
-                r1.highestAveragePriceYear(10));
+                r1.highestAveragePriceYear(10) + "\n");
 
-        System.out.println(r1.listGreaterThanAmount(2000));
+        System.out.println("-----------------------------------------------------------------------------------------");
+
+        System.out.println("\nTesting the listGreaterThanAmount() function\n");
+
+        System.out.println("The items greater than the amount 1 are: " + r1.listGreaterThanAmount(1) + "\n");
+        System.out.println("The items greater than the amount 2000 are: " + r1.listGreaterThanAmount(2000));
     }
 }
